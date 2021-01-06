@@ -1,0 +1,33 @@
+﻿<h1>Productos</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2" >Add Producto</a>
+<table class="table table-striped" style="background-color: rgb(23, 216, 200); color: white;">
+    <thead>
+        <tr>
+            <th style="width: 30%">nombre</th>
+            <th style="width: 30%">precio</th>
+            <th style="width: 30%">edad</th>
+            <th style="width: 30%">categoria</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.nombre_producto}}</td>
+            <td>{{user.precio}}</td>
+            <td>{{user.edad}}</td>
+            <td>{{user.nombre}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{user.idproducto}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteUser(user.idproducto)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
+                    <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!user.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!users">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+<h1 *ngIf="isAddMode">Add Santa</h1>
+<h1 *ngIf="!isAddMode">Edit Santa</h1>
+<button (click)="verdatos()" class="btn btn-sm btn-danger btn-delete-user"  *ngIf="!isAddMode">ver datos</button>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" style="background-color: cyan;">
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="nick">nick name santa</label>
+            <input type="text" formControlName="nick" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nick.errors }" />
+            <div *ngIf="submitted && f.nick.errors" class="invalid-feedback">
+                <div *ngIf="f.nick.errors.required">nick is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="contrasena">
+                Password
+                <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
+            </label>
+            <input type="password" formControlName="contrasena" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasena.errors }" />
+            <div *ngIf="submitted && f.contrasena.errors" class="invalid-feedback">
+                <div *ngIf="f.contrasena.errors.required">Password is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <a routerLink="/perfiles/listaSanta" class="btn btn-link">Cancel</a>
+    </div>
+</form>

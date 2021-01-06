@@ -1,0 +1,36 @@
+﻿<h1>Hijos</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Hijo</a>
+<a routerLink="/perfiles" class="btn btn-sm btn-danger mb-2">Regresar</a>
+<table class="table table-striped"  style="background-color: rgb(23, 216, 200); color: white;">
+    <thead>
+        <tr>
+            <th style="width: 30%">nickname</th>
+            <th style="width: 30%">nombre</th>
+            <th style="width: 30%">edad</th>
+            <th style="width: 30%">bastones</th>
+            <th style="width: 30%">direccion</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.nickname}}</td>
+            <td>{{user.nombre}}</td>
+            <td>{{user.edad}}</td>
+            <td>{{user.bastones}}</td>
+            <td>{{user.direccion}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{user.idhijo}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
+                    <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!user.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!users">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

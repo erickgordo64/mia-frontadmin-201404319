@@ -1,0 +1,18 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark" style="background-color: green;" *ngIf="user">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Buenas acciones</a>
+        <a class="nav-item nav-link" routerLink="/productos" routerLinkActive="active">Productos</a>
+        <a class="nav-item nav-link" routerLink="/perfiles" routerLinkActive="active">Perfiles</a>
+        <a class="nav-item nav-link" routerLink="/mensajes" routerLinkActive="active">Mensajes</a>
+        <a class="nav-item nav-link" routerLink="/reportes" routerLinkActive="active">Reportes</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="app-container" [ngClass]="{ 'bg-light': user }" style="background-image: url(https://image.freepik.com/vector-gratis/lindos-personajes-navidenos_2100-345.jpg);">
+    <alert></alert>
+    <router-outlet></router-outlet>
+</div>

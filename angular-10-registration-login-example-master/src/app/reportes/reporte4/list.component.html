@@ -1,0 +1,42 @@
+﻿<h1>TOP 5 BUENAS ACCIONES REALIZADAS</h1>
+<a routerLink="/reportes" class="btn btn-sm btn-danger mb-2">Regresar</a>
+<table class="table table-striped"  style="background-color: rgb(23, 216, 200); color: white;">
+    <thead>
+        <tr>
+            <th style="width: 30%">CANTIDAD</th>
+            <th style="width: 30%">TITULO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.top}}</td>
+            <td>{{user.titulo}}</td>
+        </tr>
+        <tr *ngIf="!users">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="container" style="background-color: turquoise;">
+    <button (click)="imprimir()" class="btn btn-sm btn-danger btn-delete-user">GRAFICAR DATOS</button>
+</div>
+
+<div class="chart-wrapper" style="background-color: white;">
+    <canvas baseChart 
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType">
+  </canvas>
+</div>
+<div class="chart-wrapper" style="background-color: white;">
+    <canvas baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>
