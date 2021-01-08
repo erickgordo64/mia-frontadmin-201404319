@@ -1,0 +1,16 @@
+﻿<div class="container" ng-app="galleryapp" ng-controller="uploadController" ng-init="show_images()">
+    <h2>Angular File Upload L</h2>
+    <br>
+    <div class="row" style="background-color: chartreuse;">
+        <div class="col-md-6">
+      
+                <input type="file" file-input="files" (change)="onFilechange($event)">
+
+            <br>
+            <button (click)="upload()" class="btn btn-sm btn-primary ">confirmar</button>>
+        </div>
+        <div style="clear:both"></div>
+        <br /><br />
+
+    </div>
+</div>

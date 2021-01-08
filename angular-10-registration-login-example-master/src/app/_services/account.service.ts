@@ -105,6 +105,14 @@ export class AccountService {
         return this.http.post(`${environment.apiUrl}/addHijo`, user);
     }
 
+    addArchivo(user: any){
+        return this.http.post(`${environment.apiUrl}/addArchivo`, user);
+    }
+
+    addCarga(user, id){
+        return this.http.post(`${environment.apiUrl}/CargaMasiva`, {user, id});
+    }
+
     addMensajes(idchat, contenido, idadmin, idhijo){
         return this.http.post(`${environment.apiUrl}/addMensaje`, { idchat, contenido, idadmin,idhijo })
     }

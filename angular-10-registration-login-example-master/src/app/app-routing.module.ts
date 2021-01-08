@@ -10,6 +10,7 @@ const productosModule = () => import('./productos/productos.module').then(x => x
 const perfilesModule =() => import ('./perfiles/perfiles.module').then(x=>x.PerfilesModule);
 const mensajesModule =() => import ('./mensajes/mensajes.module').then(x=>x.MensajesModule);
 const reportesModule=() => import('./reportes/reportes.module').then(x=>x.PerfilesModule);
+const cargaModule = () => import('./carga/carga.module').then(x=>x.CargaModule);
 
 const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'perfiles', loadChildren: perfilesModule, canActivate: [AuthGuard] },
     { path: 'mensajes', loadChildren: mensajesModule, canActivate: [AuthGuard] },
     { path: 'reportes', loadChildren: reportesModule, canActivate: [AuthGuard] },
+    { path: 'carga', loadChildren: cargaModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
 
     // otherwise redirect to home
