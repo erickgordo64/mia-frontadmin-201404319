@@ -3,14 +3,22 @@
     <br>
     <div class="row" style="background-color: chartreuse;">
         <div class="col-md-6">
-      
-                <input type="file" file-input="files" (change)="onFilechange($event)">
 
-            <br>
-            <button (click)="upload()" class="btn btn-sm btn-primary ">confirmar</button>>
+            <input type="file" file-input="files" (change)="onFilechange($event)">
+
+            <div class="container" style="background-color: chartreuse;">
+                <label>..........................................................</label>
+            </div>
+            <button (click)="upload()" class="btn btn-sm btn-primary ">UPLOAD</button>
         </div>
         <div style="clear:both"></div>
         <br /><br />
 
     </div>
+</div>
+<div class="container" style="background-color: chartreuse;">
+    <label>..........................................................</label>
+</div>
+<div class="container" style="background-color: chartreuse;">
+    <button (click)="confirmar()" class="btn btn-sm btn-primary ">confirmar</button>
 </div>

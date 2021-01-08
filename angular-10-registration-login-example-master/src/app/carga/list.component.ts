@@ -65,6 +65,20 @@ export class ListComponent implements OnInit {
 
   }
 
+  confirmar(){
+    this.accountService.addConfirmarCarga(this.id, this.loading)
+    .pipe(first())
+    .subscribe({
+        next: () => {
+            this.alertService.success('User added successfully', { keepAfterRouteChange: true });
+        },
+        error: error => {
+            this.alertService.error(error);
+            this.loading = false;
+        }
+    });
+  }
+
   onFilechange(e){
       console.log('Filechange',e);
       this.uploadedFiles = e.target.files;
